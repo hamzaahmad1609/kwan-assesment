@@ -5,9 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import './App.css';
 import Listing from './components/listing/listing.component';
+import Profile from './components/profile/profile.component';
 
+import './App.scss';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/listing",
     element: <Listing />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   }
 ]);
 

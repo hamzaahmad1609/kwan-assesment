@@ -73,4 +73,17 @@ declare global {
         first: string;
         last: string;
     }
+    interface IOption {
+        value: string;
+        label: string;
+    }
+    interface IUsersState {
+        users: IUser[]
+        info: Partial<IInfo>,
+        selectedUser: Partial<IUser>
+    }
+    interface IfilterState {
+        gender: IOption | null
+        input: string
+    }
 }

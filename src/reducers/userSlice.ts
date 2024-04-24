@@ -1,14 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface UsersState {
-    users: IUser[]
-    info: Partial<IInfo>
-
-}
-
-const initialState: UsersState = {
+const initialState: IUsersState = {
     users: [],
     info: {},
+    selectedUser: {}
 };
 
 const usersSlice = createSlice({
@@ -16,14 +11,15 @@ const usersSlice = createSlice({
     initialState,
     reducers: {
         setUsers(state, action: PayloadAction<{results: IUser[], info: IInfo }>) {
-            debugger;
             state.users = action.payload.results;
             state.info = action.payload.info;
 
         },
-        // Other actions for user state
+        selectedUser(state, action: PayloadAction<IUser>) {
+            state.selectedUser = action.payload;
+        },
     },
 });
 
-export const { setUsers } = usersSlice.actions;
+export const { setUsers, selectedUser } = usersSlice.actions;
 export default usersSlice.reducer;
